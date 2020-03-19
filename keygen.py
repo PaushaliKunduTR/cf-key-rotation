@@ -24,4 +24,4 @@ def get_publickey():
 if __name__ == '__main__':
     public_key = get_publickey()
     print(public_key)
-    print(get_publickey)
+    print(gen_privatekey())
