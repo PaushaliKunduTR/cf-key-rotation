@@ -8,8 +8,12 @@ KEY = RSA.generate(2048)
 def gen_privatekey():
     private_key = KEY.export_key()
     client = boto3.client('secretsmanager')
+    source_secret = {
+            'PrivateKey': private_key.decode("utf-8"),
+            'PrivateKeyID': "PENDING"
+            }
     response = client.put_secret_value(SecretId='arn:aws:secretsmanager:us-east-1:486076294107:secret:a205257/cfsigner/source-secret-C5X6dN',
-                                       SecretString=private_key.decode("utf-8"))
+                                       SecretString=json.dumps(source_secret))
     return response
 
 
