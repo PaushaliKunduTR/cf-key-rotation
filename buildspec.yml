@@ -1,0 +1,19 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - sudo apt-get update
+      - sudo apt-get -y install python-setuptools
+      - sudo apt-get -y install python-dev
+      - sudo easy_install pip
+      - pip install pycryptodome
+      - pip install boto3
+  pre-build:
+    commands:
+      - echo Generating Key Pair...
+      - python keygen.py
+  
+  post_build:
+    commands:
+      - echo Build completed on `date`
