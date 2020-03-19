@@ -6,6 +6,7 @@ phases:
       - easy_install pip
       - pip install pycryptodome
       - pip install boto3
+
   build:
     commands:
       - echo Generating Key Pair...
