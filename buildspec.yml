@@ -9,7 +9,7 @@ phases:
       - sudo easy_install pip
       - pip install pycryptodome
       - pip install boto3
-  pre-build:
+  build:
     commands:
       - echo Generating Key Pair...
       - python keygen.py
