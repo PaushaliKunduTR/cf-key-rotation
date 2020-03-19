@@ -9,7 +9,7 @@ def gen_privatekey():
     private_key = KEY.export_key()
     client = boto3.client('secretsmanager')
     response = client.put_secret_value(SecretId='arn:aws:secretsmanager:us-east-1:486076294107:secret:a205257/cfsigner/source-secret-C5X6dN',
-                                       SecretString=json.dumps(private_key))
+                                       SecretString=private_key.decode("utf-8"))
     return response
 
 
