@@ -22,7 +22,9 @@ def get_privatekey():
 
 def get_publickey():
     public_key = KEY.publickey().export_key()
-    # public_key = public_key.decode("utf-8")
+    file_out = open("public.pem", "wb")
+    file_out.write(public_key)
+    public_key = public_key.decode("utf-8")
 
     return public_key
 
